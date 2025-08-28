@@ -24,4 +24,4 @@ jobs:
 
       # Step 4: Run pytest inside container
       - name: Run unit tests
-        run: docker run --rm flask-app:ci pytest
+        run: python -m pytest --maxfail=1 --disable-warnings -q
