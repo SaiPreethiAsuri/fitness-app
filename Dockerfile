@@ -11,6 +11,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy source code
 COPY . .
 
+ENV PYTHONPATH=/app
+
 # Run the app (Flask)
 CMD ["python", "app.py"]
 
