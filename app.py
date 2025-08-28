@@ -16,13 +16,17 @@ def add_workout():
 
     if not workout or not duration:
         return "Please enter both workout and duration. <a href='/'>Go Back</a>"
+    if not workout.replace(" ", "").isalpha():
+        return "Workout must contain only letters. <a href='/'>Go Back</a>"
 
     try:
         duration = int(duration)
+        if duration <= 0:
+            return "Duration must be greater than 0. <a href='/'>Go Back</a>"
         workouts.append({"workout": workout, "duration": duration})
         return redirect(url_for("home"))
     except ValueError:
         return "Duration must be a number. <a href='/'>Go Back</a>"
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)

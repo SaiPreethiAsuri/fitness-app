@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>ACEestFitness and Gym</title>
 </head>
+
 <body>
     <h1>ACEestFitness and Gym</h1>
 
     <form action="/add" method="post">
         <label>Workout:</label>
-        <input type="text" name="workout" required><br><br>
+        <input type="text" name="workout" pattern="[A-Za-z\s]+" title="Workout must contain only letters and spaces"
+            required><br><br>
 
         <label>Duration (minutes):</label>
-        <input type="number" name="duration" required><br><br>
+        <input type="number" name="duration" min="1" required><br><br>
 
         <button type="submit">Add Workout</button>
     </form>
 
     <h2>Logged Workouts:</h2>
     {% if workouts %}
-        <ul>
+    <ul>
         {% for entry in workouts %}
-            <li>{{ entry.workout }} - {{ entry.duration }} minutes</li>
+        <li>{{ entry.workout }} - {{ entry.duration }} minutes</li>
         {% endfor %}
-        </ul>
+    </ul>
     {% else %}
-        <p>No workouts logged yet.</p>
+    <p>No workouts logged yet.</p>
     {% endif %}
 </body>
+
 </html>
