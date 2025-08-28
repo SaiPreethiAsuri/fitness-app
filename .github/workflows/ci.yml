@@ -20,7 +20,7 @@ jobs:
 
       # Step 3: Build Docker image
       - name: Build Docker image
-        run: docker build -t flask-app:ci .
+        run: docker build -t my-flask-app:ci .
 
       # Step 4: Run pytest inside container
       - name: Run unit tests
